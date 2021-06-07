@@ -14,9 +14,4 @@ class InvoiceService
         $now = array_push($data, "invoice3");
         return $now;
     }
-    
-    private function formatOrder(Order $order)
-    {
-        //...
-    }
 }

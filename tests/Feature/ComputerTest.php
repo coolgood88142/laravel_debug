@@ -26,9 +26,12 @@ class ComputerTest extends TestCase
     {
         $a = 3;
         $b = 5;
-        $this->mock = $this->initMock(ComputerService::class);
-        $this->mock->shouldReceive('plus')
+        $mock = $this->initMock(ComputerService::class);
+        $mock->shouldReceive('plus')
             ->once()
-            ->with($a , $b);
+            ->with($a, $b)
+            ->andReturn('成功');
+        
+        $test = $mock->plus($a, $b);
     }
 }

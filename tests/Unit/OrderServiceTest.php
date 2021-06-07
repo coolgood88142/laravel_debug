@@ -12,28 +12,18 @@ use App\Services\InvoiceService;
 class OrderServiceTest extends TestCase
 {
 
-
-    public function test_something_can_be_mocked()
+    public function testNewOrder()
     {
+        $data = [
+            "invoice1", "invoice2"
+        ];
 
-        $mock = $this->partialMock(InvoiceService::class, function (MockInterface $mock) {
-            $data = [
-                "invoice1", "invoice2"
-            ];
+        $mock = $this->initMock(InvoiceService::class);
+        $mock->shouldReceive('newInvoice')
+            ->once()
+            ->with($data)
+            ->andReturn('成功');
 
-            $mock->shouldReceive('newInvoice')
-                ->once()
-                ->with($data);
-        });
-
-        // $this->instance(
-        //     OrderService::class,
-        //     Mockery::mock(OrderService::class, function (MockInterface $mock) {
-        //         $mock->shouldReceive('newInvoice')
-        //             ->once()
-        //             ->with($order)
-        //             ->andReturn($invoiceReturn);
-        //     })
-        // );
+        $test = $mock->newInvoice($data);
     }
 }

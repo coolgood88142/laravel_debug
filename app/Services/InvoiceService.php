@@ -11,7 +11,8 @@ class InvoiceService
     
     public function newInvoice(array $data)
     {
-        $now = array_push($data, "invoice3");
-        return $now;
+        return [
+            'invoice_number' => '001'
+        ];
     }
 }

@@ -14,6 +14,10 @@ class OrderServiceTest extends TestCase
 
     public function testNewOrder()
     {
+        $invoiceReturn = [
+            'invoice_number' => '1'
+        ];
+
         $data = [
             "invoice1", "invoice2"
         ];
@@ -21,8 +25,7 @@ class OrderServiceTest extends TestCase
         $mock = $this->initMock(InvoiceService::class);
         $mock->shouldReceive('newInvoice')
             ->once()
-            ->with($data)
-            ->andReturn('成功');
+            ->with($data);
 
         $test = $mock->newInvoice($data);
     }

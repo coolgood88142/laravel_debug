@@ -29,7 +29,7 @@ class ExampleTest extends TestCase
             'X-Header' => 'Value',
         ])->get('/');
 
-        $response->assertStatus(201);
+        $response->assertStatus(200);
     }
 
     //瀏覽器中必須要cookie參數

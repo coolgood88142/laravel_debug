@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
+    protected $table = 'post';
+
     public static function archives()
     {
         return static::selectRaw('year(created_at) year, monthname(created_at) month, count(*) published')

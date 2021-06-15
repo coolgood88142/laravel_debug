@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use Illuminate\Http\UploadedFile;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -55,9 +56,9 @@ class BasicTest extends TestCase
     {
         $response = $this->get('/');
 
-        $response->dumpHeaders();
+        //$response->dumpHeaders();
 
-        $response->dumpSession();
+        //$response->dumpSession();
 
         //response->dump();
     }

@@ -3,16 +3,9 @@
 namespace App\Services;
 
 class InvoiceService 
-{
-    public function __construct(Invoice $invoice)
+{ 
+    public function invoice()
     {
-        $this->invoice = $invoice;
-    }
-    
-    public function newInvoice(array $data)
-    {
-        return [
-            'invoice_number' => '001'
-        ];
+        return 'testInvoice';
     }
 }

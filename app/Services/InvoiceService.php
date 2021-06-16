@@ -2,10 +2,12 @@
 
 namespace App\Services;
 
+use App\Models\Invoice;
+
 class InvoiceService 
 { 
-    public function invoice()
+    public function __construct(Invoice $invoice)
     {
-        return 'testInvoice';
+        $this->invoice = $invoice;
     }
 }

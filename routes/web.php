@@ -31,3 +31,10 @@ Route::group(['prefix' => 'tasks'], function () {
     Route::delete('/{id}', 'TaskController@destroy');
 });
 
+Route::post('/plus', [MainController::class, 'plus']);
+
+Route::post('/toSubtract', [MainController::class, 'toSubtract']);
+
+Route::post('/multiply', [MainController::class, 'multiply']);
+
+Route::post('/divided', [MainController::class, 'divided']);

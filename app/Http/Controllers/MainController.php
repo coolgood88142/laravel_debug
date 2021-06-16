@@ -25,5 +25,28 @@ class MainController extends Controller
         return view('welcome');
     }
     
+    public function plus(Request $request){
+        $a = $request->test1;
+        $b = $request->test2;
+        return $a + $b;
+    }
+
+    public function toSubtract(Request $request){
+        $a = $request->test1;
+        $b = $request->test2;
+        return $a - $b;
+    }
+
+    public function multiply(Request $request){
+        $a = $request->test1;
+        $b = $request->test2;
+        return $a * $b;
+    }
+
+    public function divided(Request $request){
+        $a = $request->test1;
+        $b = $request->test2;
+        return $a / $b;
+    }
 
 }

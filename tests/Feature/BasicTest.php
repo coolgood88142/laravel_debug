@@ -62,4 +62,36 @@ class BasicTest extends TestCase
 
         //response->dump();
     }
+
+    public function test_plus(){
+        $a = 1;
+        $b = 2;
+        $response = $this->call('POST', '/plus', ['test1' => $a, 'test2' => $b]);
+
+        $this->assertEquals(200, $response->status());
+    }
+
+    public function test_toSubtract(){
+        $a = 5;
+        $b = 2;
+        $response = $this->call('POST', '/toSubtract', ['test1' => $a, 'test2' => $b]);
+
+        $this->assertEquals(200, $response->status());
+    }
+
+    public function test_multiply(){
+        $a = 4;
+        $b = 3;
+        $response = $this->call('POST', '/multiply', ['test1' => $a, 'test2' => $b]);
+
+        $this->assertEquals(200, $response->status());
+    }
+
+    public function test_divided(){
+        $a = 10;
+        $b = 2;
+        $response = $this->call('POST', '/divided', ['test1' => $a, 'test2' => $b]);
+
+        $this->assertEquals(200, $response->status());
+    }
 }

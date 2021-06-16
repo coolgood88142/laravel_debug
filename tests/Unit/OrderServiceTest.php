@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use Mockery\MockInterface;
 use App\Services\InvoiceService;
-use App\Service;
+use App\Models\Invoice;
 use Mockery;
 
 
@@ -26,22 +26,28 @@ class OrderServiceTest extends TestCase
 
         // $mock = $this->initMock(InvoiceService::class);
         // $mock->shouldReceive('invoice')
-        //     ->once();
+        //      ->once();
 
         // $test = $mock->invoice();
 
-        // $this->instance(
-        //     InvoiceService::class,
-        //     Mockery::mock(InvoiceService::class, function (MockInterface $mock) {
-        //         $mock->shouldReceive('invoice')->once();
-        //     })
-        // );
 
-        $InvoiceService = new InvoiceService();
+        $mock = $this->instance(
+            Invoice::class,
+            Mockery::mock(Invoice::class, function (MockInterface $mock) {
+                $mock->shouldReceive('testInvoice')->once();
+            })
+        );
 
-        $mock = $this->mock(InvoiceService::class, function (MockInterface $mock) {
-            $mock->shouldReceive('invoice')->once();
-        });
+        dd($mock);
+
+        $invoiceService = new \App\Services\InvoiceService($mock);
+        $test = $invoiceService->invoice->testInvoice();
+
+
+
+        // $mock = $this->mock(InvoiceService::class, function (MockInterface $mock) {
+        //     $mock->shouldReceive('invoice')->once();
+        // });
 
         // $mock = $this->partialMock(InvoiceService::class, function (MockInterface $mock) {
         //     $mock->shouldReceive('invoice');

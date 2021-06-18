@@ -67,14 +67,18 @@ class BasicTest extends TestCase
         //顯示localhost的session物件內容
         //$response->dumpSession();
 
+        //整個顯示localhost的response物件
         //response->dump();
     }
 
     public function test_plus(){
         $a = 1;
         $b = 2;
+        
+        //呼叫route plus，使用POST，帶test1與test2參數
         $response = $this->call('POST', '/plus', ['test1' => $a, 'test2' => $b]);
 
+        //測試上一句的route plus，status code是否為200
         $this->assertEquals(200, $response->status());
     }
 

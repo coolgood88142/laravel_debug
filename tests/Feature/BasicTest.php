@@ -17,13 +17,16 @@ class BasicTest extends TestCase
      */
     public function test_example()
     {
+        //執行route，localhost
         $response = $this->get('/');
 
+        //測試localhost的status code是否為200
         $response->assertStatus(200);
     }
 
     public function test_console_command()
     {
+        //測試訊息
         Artisan::command('question', function () {
             $name = $this->ask('What is your name?');
         
@@ -46,6 +49,7 @@ class BasicTest extends TestCase
 
     public function test_interacting_with_cookies()
     {
+        //測試localhost的cookies參數，color的值為blue和name的值為Taylor
         $response = $this->withCookies([
             'color' => 'blue',
             'name' => 'Taylor',
@@ -54,10 +58,13 @@ class BasicTest extends TestCase
 
     public function test_basic_test()
     {
+        //測試localhost
         $response = $this->get('/');
 
+        //顯示localhost的Header物件內容
         //$response->dumpHeaders();
 
+        //顯示localhost的session物件內容
         //$response->dumpSession();
 
         //response->dump();

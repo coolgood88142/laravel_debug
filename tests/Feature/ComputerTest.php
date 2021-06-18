@@ -26,6 +26,8 @@ class ComputerTest extends TestCase
     {
         $a = 3;
         $b = 5;
+
+        //模擬執行一次ComputerService呼叫plus，帶兩個參數，設定回傳值回成功
         $mock = $this->initMock(ComputerService::class);
         $mock->shouldReceive('plus')
             ->once()
@@ -34,4 +36,13 @@ class ComputerTest extends TestCase
         
         $test = $mock->plus($a, $b);
     }
+
+    //執行ComputerService的test_plus()，確認回傳的是否為字串
+    public function testComputer()
+    {
+        self::assertIsString(
+            (new ComputerService())->test_plus(2, 3)
+        );
+    }
+
 }

@@ -31,6 +31,7 @@ class OrderServiceTest extends TestCase
         // $test = $mock->invoice();
 
 
+        //模擬Invoice class去呼叫testInvoice()，只有執行一次
         $mock = $this->instance(
             Invoice::class,
             Mockery::mock(Invoice::class, function (MockInterface $mock) {
@@ -38,8 +39,7 @@ class OrderServiceTest extends TestCase
             })
         );
 
-        dd($mock);
-
+        //建立已經模擬的Invoice class，去執行testInvoice()
         $invoiceService = new \App\Services\InvoiceService($mock);
         $test = $invoiceService->invoice->testInvoice();
 

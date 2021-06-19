@@ -24,13 +24,6 @@ class OrderServiceTest extends TestCase
             "invoice1", "invoice2"
         ];
 
-        // $mock = $this->initMock(InvoiceService::class);
-        // $mock->shouldReceive('invoice')
-        //      ->once();
-
-        // $test = $mock->invoice();
-
-
         //模擬Invoice class去呼叫testInvoice()，只有執行一次
         $mock = $this->instance(
             Invoice::class,
@@ -39,26 +32,20 @@ class OrderServiceTest extends TestCase
             })
         );
 
-        //建立已經模擬的Invoice class，去執行testInvoice()
+        //新增InvoiceService物件，含有模擬Invoice class的mock物件
         $invoiceService = new \App\Services\InvoiceService($mock);
-        $test = $invoiceService->invoice->testInvoice();
+
+        //invoiceService執行invoice class的testInvoice()
+        $invoiceService->invoice->testInvoice();
 
 
-
+        //模擬InvoiceService class去呼叫testInvoice()，只有執行一次
         // $mock = $this->mock(InvoiceService::class, function (MockInterface $mock) {
-        //     $mock->shouldReceive('invoice')->once();
+        //     $mock->shouldReceive('testInvoice')->once();
         // });
 
-        // $mock = $this->partialMock(InvoiceService::class, function (MockInterface $mock) {
-        //     $mock->shouldReceive('invoice');
-        // });
-
-        // $test = $mock->invoice();
-
-        // dd($test);
-
-        // $this->assertEquals('testInvoice', $mock->invoice());
-
+        //invoiceService執行invoice class的testInvoice()
+        //$mock->testInvoice();
 
     }
 }

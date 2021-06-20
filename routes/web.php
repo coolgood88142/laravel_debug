@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\KeywordController;
+use App\Http\Controllers\ComputerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,3 +39,12 @@ Route::post('/toSubtract', [MainController::class, 'toSubtract']);
 Route::post('/multiply', [MainController::class, 'multiply']);
 
 Route::post('/divided', [MainController::class, 'divided']);
+
+Route::get('/computer', function () {
+    return view('computer');
+});
+
+Route::post('/result', [ComputerController::class, 'result']);
+
+Route::get('/addResult', [ComputerController::class, 'addResult']);
+

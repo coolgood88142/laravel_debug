@@ -54,6 +54,7 @@ class BasicTest extends TestCase
             ->expectsOutput('Your name is Taylor Otwell and you prefer PHP.')
             //顯示測試訊息Your name is Taylor Otwell and you prefer Ruby.
             ->doesntExpectOutput('Your name is Taylor Otwell and you prefer Ruby.')
+            //結束
             ->assertExitCode(0);
     }
 
@@ -80,6 +81,8 @@ class BasicTest extends TestCase
         //整個顯示localhost的response物件
         //response->dump();
     }
+
+    
 
     public function test_plus(){
         $a = 1;

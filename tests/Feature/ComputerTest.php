@@ -27,7 +27,7 @@ class ComputerTest extends TestCase
         $a = 3;
         $b = 5;
 
-        //模擬執行一次ComputerService呼叫plus，帶兩個參數，設定回傳值回成功
+        //模擬執行一次ComputerService呼叫plus，帶兩個參數，設定回傳值為成功
         $mock = $this->initMock(ComputerService::class);
         $mock->shouldReceive('plus')
             ->once()

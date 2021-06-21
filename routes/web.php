@@ -48,3 +48,6 @@ Route::post('/result', [ComputerController::class, 'result']);
 
 Route::get('/addResult', [ComputerController::class, 'addResult']);
 
+Route::get('/api', function (Client $client) {
+    return $client->query();
+});

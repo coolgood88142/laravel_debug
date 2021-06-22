@@ -27,9 +27,20 @@ class ClientTest extends TestCase
         )->once();
         $log = m::spy(Log::class);
         $client = new Client($guzzleClient, $log, $key);
+        $json = json_encode($client->query('BTC'));
 
-        $this->assertJsonStructure($client->query('btC'));
-    
+        
+        $test = json_encode([
+            'price' => 9165.74788036,
+            'volume_24h' => 15782991288.054,
+            'percent_change_1h' => -0.537992,
+            'percent_change_24h' => -1.19578,
+            'percent_change_7d' => 16.4927,
+            'market_cap' => 162835578819.6922,
+            'last_updated' => '2019-06-18T12:14:22.000Z',
+        ]);
+
+        $this->assertEquals($json, $test);
 
         $log->shouldHaveReceived('info')->with($key)->once();
     }

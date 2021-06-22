@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\Services;
+namespace Tests\Unit;
 
 use Mockery as m;
 use App\Services\Log;
@@ -23,7 +23,7 @@ class ClientTest extends TestCase
         $key = '216c9611-9a19-44cd-9cc2-052d9fbcd761';
         $guzzleClient = m::mock(new GuzzleClient);
         $guzzleClient->shouldReceive('request')->andReturn(
-            new Response('200', [], file_get_contents(__DIR__.'/result.txt'))
+            new Response('200', [], file_get_contents(__DIR__.'/Services/result.txt'))
         )->once();
         $log = m::spy(Log::class);
         $client = new Client($guzzleClient, $log, $key);

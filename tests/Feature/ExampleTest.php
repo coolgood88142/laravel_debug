@@ -32,11 +32,9 @@ class ExampleTest extends TestCase
         $response->assertStatus(200);
     }
 
-    //瀏覽器中必須要cookie參數
     public function test_interacting_with_cookies()
     {
-        // $response = $this->withCookie('color', 'blue')->get('/');
-
+        //測試localhost的cookies參數，color的值為blue和name的值為Taylor
         $response = $this->withCookies([
             'color' => 'blue',
             'name' => 'Taylor',

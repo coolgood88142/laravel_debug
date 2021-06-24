@@ -22,10 +22,10 @@ class ComputerService
         return $a / $b;
     }
 
-    public function addData($result){
-            $computer = new Computer();
-            $computer->result1 = $result;
-            $computer->save();
+    public function addSuccessData($result){
+        $computer = new Computer();
+        $computer->result = $result;
+        $computer->save();
 
         return 'success';
     }

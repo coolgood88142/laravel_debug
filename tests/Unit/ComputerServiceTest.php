@@ -103,20 +103,20 @@ class ComputerServiceTest extends TestCase
     }
 
     //要測試結果是否新增到DB
-    public function test_add_data()
+    public function test_add_success_data()
     {
         //Arrange
-        //模擬ComputerService，呼叫addData()，只執行一次，並且帶result參數，設定回傳success
+        //模擬ComputerService，呼叫addSuccessData()，只執行一次，並且帶result參數，設定回傳success
         $result = 15;
         $mock = $this->initMock(ComputerService::class);
-        $mock->shouldReceive('addData')
+        $mock->shouldReceive('addSuccessData')
             ->once()
             ->with($result)
             ->andReturn('success');
 
         //Act
-        //將mock執行addData()
-        $test = $mock->addData($result);
+        //將mock執行addSuccessData()
+        $test = $mock->addSuccessData($result);
 
         //Assert
         //確認回傳資料是否為success

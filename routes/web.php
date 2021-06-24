@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\KeywordController;
 use App\Http\Controllers\ComputerController;
+use App\Http\Controllers\IeController;
+use App\Services\Client;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,3 +53,7 @@ Route::get('/addResult', [ComputerController::class, 'addResult']);
 Route::get('/api', function (Client $client) {
     return $client->query();
 });
+
+Route::get('/ie', [IeController::class, 'getData']);
+
+Route::post('/save', [IeController::class, 'save'])->name('save');

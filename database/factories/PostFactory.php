@@ -3,7 +3,8 @@
 namespace Database\Factories;
 use Faker\Generator as Faker;
 
-use App\Models\Post;
+use App\Post;
+use App\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class PostFactory extends Factory

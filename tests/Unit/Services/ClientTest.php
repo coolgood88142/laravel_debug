@@ -24,11 +24,12 @@ class ClientTest extends TestCase
 
         //Arrange
         //模擬GuzzleClient的mock物件，並且呼叫request()，回傳Response物件
-        $guzzleClient = m::mock(new GuzzleClient);
+        $guzzleClient = m::spy(new GuzzleClient);
         $guzzleClient->shouldReceive('request')->andReturn(
             new Response('200', [], file_get_contents(__DIR__.'/result.txt'))
         )->once();
 
+        dd($guzzleClient);
         //Act
         //spy是建立真實的class，並且執行真的function
         $log = m::spy(Log::class);

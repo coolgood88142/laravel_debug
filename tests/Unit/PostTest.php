@@ -2,11 +2,14 @@
 
 namespace Tests\Unit;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use PHPUnit\Framework\TestCase;
-use App\Models\Post;
+use App\Post;
 
 class PostTest extends TestCase
 {
+    use RefreshDatabase;
+    
     /**
      * A basic unit test example.
      *

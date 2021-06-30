@@ -29,7 +29,6 @@ class ClientTest extends TestCase
             new Response('200', [], file_get_contents(__DIR__.'/result.txt'))
         )->once();
 
-        dd($guzzleClient);
         //Act
         //spy是建立真實的class，並且執行真的function
         $log = m::spy(Log::class);

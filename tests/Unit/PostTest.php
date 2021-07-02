@@ -3,29 +3,21 @@
 namespace Tests\Unit;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
 use App\Post;
 
 class PostTest extends TestCase
 {
     use RefreshDatabase;
     
-    /**
-     * A basic unit test example.
-     *
-     * @return void
-     */
-    public function test_example()
-    {
-        $this->assertTrue(true);
-    }
-
     public function testArchives()
     {
+        parent::setUp();
+        
         // Given I have two records in the database that art posts,
         // and each one is posted a month apart.
-        $first = factory(Post::class)->create();
-        $second = factory(Post::class)->create([
+        $first = Post::factory()->create();
+        $second = Post::factory()->create([
         'created_at' => \Carbon\Carbon::now()->subMonth()
         ]);
 

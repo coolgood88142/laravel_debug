@@ -2,11 +2,12 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Jenssegers\Mongodb\Eloquent\Model;
 
 class Post extends Model
 {
-    protected $table = 'post';
+    protected $collection = 'post';
+    public $timestamps = false;
 
     public static function archives()
     {

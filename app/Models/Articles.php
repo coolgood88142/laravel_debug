@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
-use Jenssegers\Mongodb\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model;
 
 class Articles extends Model
 {
-    protected $collection = 'articles';
+    protected $table = 'articles';
+    protected $connection = 'mysql';
     public $timestamps = false;
 
 }

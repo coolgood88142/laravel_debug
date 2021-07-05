@@ -175,7 +175,6 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\TelescopeServiceProvider::class,
-        Jenssegers\Mongodb\MongodbServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
     ],
 

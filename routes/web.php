@@ -57,3 +57,5 @@ Route::get('/api', function (Client $client) {
 Route::get('/ie', [IeController::class, 'getData']);
 
 Route::post('/save', [IeController::class, 'save'])->name('save');
+
+Route::get('/testData', [MainController::class, 'testData']);

@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Task extends Model
 {
     protected $table = 'task';
+    protected $connection = 'mysql';
+    
     use HasFactory;
     protected $fillable = ['name', 'description', 'status'];
 

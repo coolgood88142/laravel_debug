@@ -3,17 +3,16 @@
 namespace Tests\Unit;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Database\Eloquent\Collection;
 use Tests\TestCase;
-use App\Post;
+use App\Models\Post;
 
 class PostTest extends TestCase
 {
     use RefreshDatabase;
     
     public function testArchives()
-    {
-        parent::setUp();
-        
+    {       
         // Given I have two records in the database that art posts,
         // and each one is posted a month apart.
         $first = Post::factory()->create();

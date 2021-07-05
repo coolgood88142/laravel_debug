@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Post;
+use App\Models\Flight;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class Post1Factory extends Factory
+class FlightFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Post::class;
+    protected $model = Flight::class;
 
     /**
      * Define the model's default state.

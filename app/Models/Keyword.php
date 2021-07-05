@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
-use Jenssegers\Mongodb\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model;
 
 class Keyword extends Model
 {
-    protected $collection = 'keyword';
+    protected $table = 'keyword';
+    protected $connection = 'mysql';
     public $timestamps = false;
 
 }

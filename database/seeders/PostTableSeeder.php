@@ -3,17 +3,17 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\User;
+use App\Models\Post;
 
-class DatabaseSeeder extends Seeder
+class PostTableSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-        //\App\User::factory(10)->create();
+        $post = Post::factory(100000)->create();
     }
 }

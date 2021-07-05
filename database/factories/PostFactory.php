@@ -2,10 +2,8 @@
 
 namespace Database\Factories;
 use Faker\Generator as Faker;
-
-use App\Post;
-use App\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Post;
 
 class PostFactory extends Factory
 {
@@ -23,14 +21,9 @@ class PostFactory extends Factory
      */
     public function definition()
     {
-        $factory->define(App\Post::class, function (Faker $faker) {
-            return [
-                'user_id' => function () {
-                    return factory(App\User::class)->create()->id;
-                },
-                'title' => $faker->sentence,
-                'body' => $faker->paragraph
-            ];
-        });
+        return [
+            'title' => $this->faker->sentence(),
+            'content' => $this->faker->text()
+        ];
     }
 }

@@ -20,7 +20,7 @@ abstract class DuskTestCase extends BaseTestCase
     public static function prepare()
     {
         if (! static::runningInSail()) {
-            static::startChromeDriver();
+            //static::startChromeDriver();
         }
     }
 
@@ -50,7 +50,7 @@ abstract class DuskTestCase extends BaseTestCase
         // );
 
         return RemoteWebDriver::create(
-            'http://localhost:9515', DesiredCapabilities::chrome()
+            'http://localhost:4444/wd/hub', DesiredCapabilities::phantomjs()
         );
     }
 

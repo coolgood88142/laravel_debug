@@ -49,4 +49,8 @@ class MainController extends Controller
         return $a / $b;
     }
 
+    public function testData(Request $request){
+        return "test";
+    }
+
 }

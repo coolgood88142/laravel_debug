@@ -23,14 +23,16 @@ class ClientTest extends TestCase
         $key = '216c9611-9a19-44cd-9cc2-052d9fbcd761';
 
         //Arrange
-        //模擬GuzzleClient的mock物件，並且呼叫request()，回傳Response物件
-        $guzzleClient = m::spy(new GuzzleClient);
+        //建立一個代替mock的GuzzleClient來做驗證
+        $guzzleClient = m::mock(new GuzzleClient);
+
+        //呼叫request()，回傳Response物件，只執行一次
         $guzzleClient->shouldReceive('request')->andReturn(
             new Response('200', [], file_get_contents(__DIR__.'/result.txt'))
         )->once();
 
         //Act
-        //spy是建立真實的class，並且執行真的function
+        //建立一個代替mock的log class來做驗證
         $log = m::spy(Log::class);
 
        //建立Services/Client的物件，參數帶guzzleClient、log、key
@@ -54,7 +56,7 @@ class ClientTest extends TestCase
         //將client物件跟自己設定假資料做比對，確認內容有沒有一樣
         $this->assertEquals($json, $test);
 
-        //Services/Log物件呼叫info，並且帶KEY，只執行一次
+        //驗證Services的Log有沒有info 這個function，帶key參數，並且執行一次
         $log->shouldHaveReceived('info')->with($key)->once();
     }
 }

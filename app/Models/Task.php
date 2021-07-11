@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Task extends Model
 {
+    use HasFactory;
+
     protected $table = 'task';
     protected $connection = 'mysql';
     
-    use HasFactory;
     protected $fillable = ['name', 'description', 'status'];
 
     public function mark_task_as_completed()

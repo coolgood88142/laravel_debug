@@ -5,7 +5,9 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\KeywordController;
 use App\Http\Controllers\ComputerController;
 use App\Http\Controllers\IeController;
+use App\Http\Controllers\TaskController;
 use App\Services\Client;
+use App\Models\Task;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,12 +29,18 @@ Route::get('/main', [MainController::class, 'getMainData']);
 
 Route::get('/keyword', [KeywordController::class, 'getKeywordView']);
 
-Route::group(['prefix' => 'tasks'], function () {
-    Route::get('/{task}','TaskController@show');
-    Route::post('/create', 'TaskController@create_task');
-    Route::patch('{task}/complete', 'TaskController@mark_task_as_completed');
-    Route::delete('/{id}', 'TaskController@destroy');
+// Route::get('/task/{task}',[TaskController::class, 'show']);
+// Route::post('/task/create', [TaskController::class, 'create_task']);
+// Route::patch('/task{task}/complete', [TaskController::class, 'mark_task_as_completed']);
+// Route::delete('/task/{id}', [TaskController::class, 'destroy']);
+
+Route::prefix('task')->group(function () {
+    Route::get('/{task}', [TaskController::class, 'show']);
+    Route::post('/create', [TaskController::class, 'create_task']);
+    Route::patch('{task}/complete', [TaskController::class, 'mark_task_as_completed']);
+    Route::delete('/{id}', [TaskController::class, 'destroy']);
 });
+
 
 Route::post('/plus', [MainController::class, 'plus']);
 

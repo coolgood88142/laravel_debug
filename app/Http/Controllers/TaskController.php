@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Task;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TaskController extends Controller
 {
@@ -35,14 +36,15 @@ class TaskController extends Controller
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function create_task(Request $request)
     {
-        //
+        DB::table('task')->insert([
+            'name' => $request->name,
+            'description' => $request->description,
+            'completed' => random_int(0, 1)
+        ]);
+
+        return 'success';
     }
 
     /**
